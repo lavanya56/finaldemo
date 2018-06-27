@@ -1,0 +1,7 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  name: NodeJs--PWFApp
+  host: NodeJs--PWFApp
+  disk_quota: 1024M

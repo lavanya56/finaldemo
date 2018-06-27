@@ -1,0 +1,18 @@
+node {
+    env.NODEJS_HOME = "${tool 'Node 6.x'}"
+    env.PATH="${env.NODEJS_HOME}:${env.PATH}" // on windows node use ;
+    sh 'npm --version'
+	
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
+                    sh 'npm config ls'
+                }
+            }
+        }
+    }
+}
+}
